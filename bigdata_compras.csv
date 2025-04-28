@@ -1,4 +1,4 @@
-TransactionID;Date;CustomerID;ProductID;Category;Quantity;Price;Total;PaymentMethod;StoreLocation
+TransactionID;fecha;CustomerID;ProductID;Category;Quantity;Price;Total;PaymentMethod;StoreLocation
 TR1000;2023-01-29;CU075;PRD5247;Furniture;9;353.41;3180.69;Cash;Phoenix
 TR1001;2023-01-28;CU350;PRD3311;Toys;6;554.51;3327.06;Credit Card;San Antonio
 TR1002;2023-02-12;CU392;PRD4241;Toys;4;464.02;1856.08;Paypal;Philadelphia
