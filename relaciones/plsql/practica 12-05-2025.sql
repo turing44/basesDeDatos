@@ -22,7 +22,7 @@ BEGIN
 END;
 
 BEGIN
-    EXECUTE(suma(3,5));
+    DBMS_OUTPUT.PUT_LINE(suma(3,5)); 
 END;
 
 -- 3
