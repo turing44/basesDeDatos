@@ -123,4 +123,36 @@ EXCEPTION
 END;
 /
 
+
+CREATE OR REPLACE PROCEDURE lanza_error(empleado IN NUMBER)
+IS
+    SALARIO_NULO EXCEPTION;
+    salario EMPLE.SALARIO%TYPE;
+BEGIN
+    SELECT SALARIO INTO salario FROM EMPLE WHERE EMP_NO = empleado;
+
+    IF salario IS NULL THEN 
+        RAISE SALARIO_NULO;
+    END IF;
+
+    UPDATE EMPLE 
+    SET SALARIO = SALARIO + 30 
+    WHERE EMP_NO = empleado;
+
+    DBMS_OUTPUT.PUT_LINE('Salario incrementado');
+
+EXCEPTION 
+    WHEN NO_DATA_FOUND THEN
+        RAISE_APPLICATION_ERROR(-202020, 'No existe el usuario');
+
+    WHEN SALARIO_NULO THEN
+        RAISE_APPLICATION_ERROR(-20222, 'Error: el salario es NULL');
+END;
+
+BEGIN
+    lanza_error(7369); -- Ajusta el ID según tu tabla EMPLE
+END;
+
+
+
 ROLLBACK;
